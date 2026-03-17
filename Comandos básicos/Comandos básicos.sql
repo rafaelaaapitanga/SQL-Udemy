@@ -1,6 +1,6 @@
+-- SELECT
 -- PARA QUE SERVE ##################################################################
 -- Serve para selecionar colunas de tabelas
-
 
 -- SINTAXE #########################################################################
 select coluna_1, coluna_2, coluna_3
@@ -29,6 +29,7 @@ from sales.customers
 -- sem conter vírgula antes do comando FROM
 -- (3) Pode-se utilizar o asterisco (*) para selecionar todas as colunas da tabela
 
+-- DISTINCT
 -- PARA QUE SERVE ##################################################################
 -- Serve para remover linhas duplicadas e mostrar apenas linhas distintas
 -- Muito usado na etapa de exploração das bases 
@@ -60,9 +61,9 @@ from sales.products
 -- (3) Caso mais de uma coluna seja selecionada, o comando SELECT DISTINCT irá 
 -- retornar todas as combinações distintas.
 
+-- WHERE
 -- PARA QUE SERVE ##################################################################
 -- Serve para filtrar linhas de acordo com uma condição
-
 
 -- SINTAXE #########################################################################
 select coluna_1, coluna_2, coluna_3
@@ -104,9 +105,10 @@ from sales.customers -- ano-mes-dia
 -- (4) Pode-se combinar mais de uma condição utilizando os operadores lógicos
 -- (5) No PostgreSQL as datas são escritas no formato 'YYYY-MM-DD' ou 'YYYYMMDD'
 
+
+--ORDER BY
 -- PARA QUE SERVE ##################################################################
 -- Serve para ordenar a seleção de acordo com uma regra definida pelo usuário
-
 
 -- SINTAXE #########################################################################
 select coluna_1, coluna_2, coluna_3
@@ -134,26 +136,30 @@ order by state
 -- decrescente usar o comando DESC
 -- (3) No caso de strings a ordenação será seguirá a ordem alfabetica
 
+-- LIMIT
 -- PARA QUE SERVE ##################################################################
 -- Serve para limitar o nº de linhas da consulta.
 -- Muito utilizado na etapa de exploração dos dados
-
 
 -- SINTAXE #########################################################################
 select coluna_1, coluna_2, coluna_3
 from schema_1.tabela_1
 limit N
 
-
 -- EXEMPLOS ########################################################################
 
 -- (Exemplo 1) Seleção das N primeiras linhas usando LIMIT
 -- Liste as 10 primeiras linhas da tabela funnel utilizando o LIMIT
-
+select *
+from sales.funnel
+limit 10
 
 -- (Exemplo 2) Seleção das N primeiras linhas usando LIMIT e ORDER BY
 -- Liste os 10 produtos mais caros da tabela products com o comando LIMIT
-
+select *
+from sales.products
+order by price desc
+limit 10
 
 -- RESUMO ##########################################################################
 -- (1) Comando utilizado para limitar o nº de linhas da consulta.
